@@ -16,9 +16,16 @@ const awesomeCard = css`
   padding: 20px;
 `
 
+const Card = styled.div`
+  background-color: white;
+`
+
 const Container = styled.div`
   background-color: navy;
   height: 50vh;
+  ${Card} {
+    background-color: blue;
+  }
 `
 
 const Input = styled.input.attrs({
@@ -28,10 +35,6 @@ const Input = styled.input.attrs({
   border-radius: 5px;
   margin-bottom: 20px;
   ${awesomeCard}
-`
-
-const Card = styled.div`
-  background-color: white;
 `
 
 const Button = styled.button`
