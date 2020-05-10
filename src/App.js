@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import styled, { createGlobalStyle, css, keyframes } from "styled-components";
+import styled, { createGlobalStyle, css, ThemeProvider } from "styled-components";
+import theme from "./theme";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -25,20 +26,34 @@ const Input = styled.input.attrs({
 })`
   border: none;
   border-radius: 5px;
+  margin-bottom: 20px;
   ${awesomeCard}
+`
+
+const Card = styled.div`
+  background-color: white;
+`
+
+const Button = styled.button`
+  border-radius: 30px;
+  padding: 25px;
+  background-color: ${props => props.theme.successColor}
 `
 
 function App() {
   return (
     <div className="App">
+      <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Container>
         <Input placeholder="write"/>
+        <Form />
       </Container>
+      </ThemeProvider>
     </div>
   );
 }
 
-
+const Form = () => (<Card><Button>Hello</Button></Card>)
 
 export default App;
